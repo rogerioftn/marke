@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
+    
+    <script  type="text/javascript">
+    /*global editor */
+    function clean(e){
+      var numero;
+    	var textfield = document.getElementById(e);
+    	const regex = /^[1-9]\d{12}/;   //      /[1-9]\d{9}/
+    	const reg = /^\s*|\s*$/g;
+    	numero = textfield.value.substring(0,13);
+    	//document.getElementById("numero").value = numero;
+    	document.getElementById("status").innerHTML = numero;
+    	if(textfield.value.search(regex) > -1) {
+    		textfield.value = textfield.value.replace(regex, "");
+    		textfield.value = textfield.value.replace(reg,"");
+        } 
+        
+    }
+    
+    function verifican(d){
+      var numero;
+      var i = 0;
+    	var textfield = document.getElementById(d);
+    	while (textfield.value != '' )
+    	{
+    	numero = textfield.value.substring(0,13);
+    	
+    	
+    	
+    	const regex = /^[1-9]\d{12}/;   //      /[1-9]\d{9}/
+    	const reg = /^\s*|\s*$/g;
+    		if(textfield.value.search(regex) > -1) {
+    		  document.getElementById("nume").value = numero ;
+    		  document.getElementById("nume").value = document.getElementById("nume").value;
+    		textfield.value = textfield.value.replace(regex, "");
+    		textfield.value = textfield.value.replace(reg,"");
+    		i++;
+        document.getElementById("numero").value = i;
+        } 
+        
+    	}
+    }
+    </script>
+    <title>SMS, Marketing!</title>
+  </head>
+  <body>
+    
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">SMS Marketer</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Cadastro</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Ajuda</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+       </li>
+    </ul>
+  </div>
+</nav>
+
+<h3>EDITOR:</h3>
+<form>
+<textarea id="editor"  rows="4" cols="80">
+5562999503162 5562983295500 5562981228384
+5562991025501 5562983295500 5562999503162
+5562999503162 5562999503162
+</textarea>
+    <br><label for="numero">Numero</label>
+    <input type="text" name="numero" id="numero" class="form-group">
+  <br>
+  <button id="botao-converter" onclick="verifican('editor')" type="button">sub</button>
+</form>
+<br>
+<h3>RESULTADO:</h3>
+<div id="status">Status</div>
+
+<textarea id="nume"  rows="3" cols="80"> </textarea>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+  </body>
+</html>
